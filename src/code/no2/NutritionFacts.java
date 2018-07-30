@@ -1,13 +1,15 @@
 package code.no2;
 
+import java.util.OptionalInt;
+
 //Builder Pattern
 public class NutritionFacts {
     private final int servingSize;
     private final int servings;
-    private final int calories;
-    private final int fat;
-    private final int sodium;
-    private final int carbohydrate;
+    private final OptionalInt calories;
+    private final OptionalInt fat;
+    private final OptionalInt sodium;
+    private final OptionalInt carbohydrate;
 
     public static class Builder {
         //Required parameters
@@ -15,10 +17,10 @@ public class NutritionFacts {
         private final int servings;
 
         //optional parameters - initialized to default values
-        private int calories = 0;
-        private int fat = 0;
-        private int sodium = 0;
-        private int carbohydrate = 0;
+        private OptionalInt calories = OptionalInt.empty();
+        private OptionalInt fat = OptionalInt.empty();
+        private OptionalInt sodium = OptionalInt.empty();
+        private OptionalInt carbohydrate = OptionalInt.empty();
 
         public Builder(int servingSize, int servings) {
             this.servingSize = servingSize;
@@ -26,22 +28,22 @@ public class NutritionFacts {
         }
 
         public Builder calories(int val) {
-            calories = val;
+            calories = OptionalInt.of(val);
             return this;
         }
 
         public Builder fat(int val) {
-            fat = val;
+            fat = OptionalInt.of(val);
             return this;
         }
 
         public Builder sodium(int val) {
-            sodium = val;
+            sodium = OptionalInt.of(val);
             return this;
         }
 
         public Builder carbohydrate(int val) {
-            carbohydrate = val;
+            carbohydrate = OptionalInt.of(val);
             return this;
         }
 
